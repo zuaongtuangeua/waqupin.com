@@ -1,0 +1,51 @@
+# 源代码和类型定义
+*.ts
+tsconfig.json
+
+# 测试文件
+test/
+tests/
+test-*.js
+*.test.ts
+
+# 文档
+docs/
+*.md
+!README.md
+
+# 日志和缓存
+test-logs/
+*.log
+
+# 开发配置
+.codebuddy/
+.vscode/
+.eslintrc*
+
+# 项目数据文件（不包含在插件中）
+.novel-assistant/
+.插件配置/
+.创作上下文/
+test-data/
+
+# 其他临时文件
+package.vsix
+novel-assistant-*.vsix
+
+# 示例和模板
+templates/
+
+# 临时测试文件
+test-import.js
+test-logger.js
+testCharacterManagement.js
+testCharacterModification.js
+
+# 项目文档
+HANDOVER_DOCUMENT.md
+VSCode 小说创作助手插件 - 开发计划.MD
+
+# 中文文件夹
+🎭 伏笔看板/
+📚 资料库/
+📦 导出/

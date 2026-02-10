@@ -1,0 +1,170 @@
+{
+  "name": "novel-assistant",
+  "displayName": "小说创作助手",
+  "description": "基于外部 AI API 的小说创作辅助插件（MuMuAINovel 精简版）",
+  "version": "3.1.2",
+  "publisher": "local-user",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/user/novel-assistant"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "novelAssistant-sidebar",
+          "title": "小说助手",
+          "icon": "$(book)"
+        }
+      ]
+    },
+    "views": {
+      "novelAssistant-sidebar": [
+        {
+          "type": "webview",
+          "id": "novelAssistant.navigator",
+          "name": "📚 导航控制台"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "novelAssistant.openWorldSetting",
+        "title": "小说助手：打开世界观设定"
+      },
+      {
+        "command": "novelAssistant.openOutline",
+        "title": "小说助手：打开大纲管理"
+      },
+      {
+        "command": "novelAssistant.openSummary",
+        "title": "小说助手：打开章节摘要"
+      },
+      {
+        "command": "novelAssistant.openProjectConfig",
+        "title": "小说助手：打开项目配置"
+      },
+      {
+        "command": "novelAssistant.openWritingStyles",
+        "title": "小说助手：打开写作风格"
+      },
+      {
+        "command": "novelAssistant.testApi",
+        "title": "小说助手：测试 API 连接"
+      },
+      {
+        "command": "novelAssistant.generateChapter",
+        "title": "小说助手：生成章节"
+      },
+      {
+        "command": "novelAssistant.analyzeChapter",
+        "title": "小说助手：分析当前章节"
+      },
+      {
+        "command": "novelAssistant.showForeshadows",
+        "title": "小说助手：查看伏笔列表"
+      },
+      {
+        "command": "novelAssistant.editForeshadow",
+        "title": "小说助手：编辑伏笔"
+      },
+      {
+        "command": "novelAssistant.showRelationshipGraph",
+        "title": "小说助手：查看角色关系图谱"
+      },
+      {
+        "command": "novelAssistant.showSummaries",
+        "title": "小说助手：查看章节摘要列表"
+      },
+      {
+        "command": "novelAssistant.showCharacterDetail",
+        "title": "小说助手：查看角色详情"
+      },
+      {
+        "command": "novelAssistant.editCharacter",
+        "title": "小说助手：编辑角色"
+      },
+      {
+        "command": "novelAssistant.importDocument",
+        "title": "小说助手：导入文档"
+      },
+      {
+        "command": "novelAssistant.importFolder",
+        "title": "小说助手：批量导入文件夹"
+      },
+      {
+        "command": "novelAssistant.showOutlines",
+        "title": "小说助手：查看大纲列表"
+      },
+      {
+        "command": "novelAssistant.runIntegrationTests",
+        "title": "小说助手：运行集成测试"
+      },
+      {
+        "command": "novelAssistant.runUITests",
+        "title": "小说助手：运行UI测试"
+      },
+      {
+        "command": "novelAssistant.runE2ETests",
+        "title": "小说助手：运行端到端测试"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "novelAssistant.showRelationshipGraph",
+          "when": "view == novelAssistant.main",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": []
+    },
+    "configuration": {
+      "title": "小说创作助手配置",
+      "properties": {
+        "novelAssistant.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "外部 AI 服务的 API Key（例如 miniMax / OpenAI 等）"
+        },
+        "novelAssistant.apiBase": {
+          "type": "string",
+          "default": "",
+          "description": "外部 AI 服务的基础 URL（例如：https://api.minimax.chat/v1）"
+        },
+        "novelAssistant.model": {
+          "type": "string",
+          "default": "",
+          "description": "使用的模型名称（由对应服务提供）"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "echo 'no lint configured'",
+    "test": "node out/runTests.js",
+    "unit-test": "node out/runUnitTests.js",
+    "performance-test": "node out/runPerformanceTests.js",
+    "coverage-report": "node out/runTestCoverageReport.js",
+    "ui-test": "node out/runUITests.js",
+    "install-test": "node out/runInstallTests.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}
